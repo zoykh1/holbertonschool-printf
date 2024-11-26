@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * print_string - imprime une chaine sur la sortie standard
  * @s: chaine a imprimer
@@ -10,7 +12,7 @@ int print_string(char *s)
 
 	while (*s)
 	{
-		count += _putchar(s++);
+		count += _putchar(*s++);
 	}
 	return (count);
 }
@@ -37,7 +39,7 @@ int print_int(int n)
 
 	if (n < 0)
 	{
-		count += _putchar('_');
+		count += _putchar('-');
 		n = -n;
 	}
 	if (n / 10)
