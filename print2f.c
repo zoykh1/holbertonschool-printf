@@ -2,12 +2,13 @@
 
 /**
  * print_string - imprime une chaine sur la sortie standard
- * @s: chaine a imprimer
+ * @args: chaine a imprimer
  * Return: nombre de caractere a imprimer
  */
 
-int print_string(char *s)
+int print_string(va_list args)
 {
+	char *s = va_arg(args, char *);
 	int count = 0;
 
 	if (s == NULL)
@@ -17,27 +18,32 @@ int print_string(char *s)
 	{
 		count += _putchar(*s++);
 	}
+
 	return (count);
 }
 
+
 /**
  * print_percent - imprime %
+ * @args: liste arguments
  * Return: toujours 1 (succes)
  */
 
-int print_percent(void)
+int print_percent(va_list args)
 {
+	(void)args;
 	return (_putchar('%'));
 }
 
 /**
  * print_int - imprime un entier sur sortie standard
- * @n: entier a imprimer
+ * @args: liste arguments contenat entier a imprimer
  * Return: nombre de chiffe a imprimer
  */
 
-int print_int(int n)
+int print_int(va_list args)
 {
+	int n = va_arg(args, int);
 	int count = 0;
 
 	if (n < 0)

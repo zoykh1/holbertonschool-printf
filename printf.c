@@ -14,18 +14,19 @@ int _printf(const char *format, ...)
 	int count = 0;
 	const char *p;
 
+	format_specifier_t specifiers[] = {
+		{'c', print_percent},
+		{'s', print_string},
+		{'%', print_percent},
+		{'d', print_int},
+		{'i', print_int},
+		{'\0', NULL}
+	};
 	if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
-	format_specifier_t specifiers[] = {
-		{'c', (int (*)(va_list))_putchar},
-		{'s', (int (*)(va_list))print_string},
-		{'%', (int (*)(va_list))print_percent},
-		{'d', (int (*)(va_list))print_int},
-		{'i', (int (*)(va_list))print_int},
-		{'\0', NULL}
-	};
+
 	for (p = format; *p != '\0'; p++)
 	{
 		if (*p == '%')
@@ -56,8 +57,11 @@ int _printf(const char *format, ...)
 
 int handle_specifier(char specifier, va_list args, format_specifier_t
 specifiers[])
+
 {
-	for (int i = 0; specifiers[i].specifier != '\0'; i++)
+	int i;
+
+	for (i = 0; specifiers[i].specifier != '\0'; i++)
 	{
 		if (specifiers[i].specifier == specifier)
 		{
