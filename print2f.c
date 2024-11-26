@@ -71,3 +71,15 @@ int print_number(int num)
 		count += print_number(num / 10);
 	return (count + _putchar(num % 10 + '0'));
 }
+
+
+/**
+ * print_char - imprime un caractère sur la sortie standard.
+ * @args: Liste d'arguments contenant le caractère à imprimer.
+ * Return: toujours 1 (succes).
+ */
+int print_char(va_list args)
+{
+	char c = va_arg(args, int);
+	return (_putchar(c));
+}

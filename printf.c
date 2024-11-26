@@ -14,15 +14,17 @@ int _printf(const char *format, ...)
 	int count = 0;
 	const char *p;
 
+
 	format_specifier_t specifiers[] = {
-		{'c', print_percent},
+		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
 		{'d', print_int},
 		{'i', print_int},
 		{'\0', NULL}
 	};
-	if (format == NULL)
+
+		if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
