@@ -13,8 +13,6 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count = 0;
 	const char *p;
-
-
 	format_specifier_t specifiers[] = {
 		{'c', print_char},
 		{'s', print_string},
