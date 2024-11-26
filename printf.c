@@ -33,7 +33,10 @@ int _printf(const char *format, ...)
 		{
 			p++;
 			if (*p == '\0')
-				break;
+			{
+				va_end(args);
+				return (-1);
+			}
 		if (*p == '%')
 		{
 			count += _putchar('%');
