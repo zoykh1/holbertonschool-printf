@@ -10,6 +10,9 @@ int print_string(char *s)
 {
 	int count = 0;
 
+	if (s == NULL)
+		s = "(null)";
+
 	while (*s)
 	{
 		count += _putchar(*s++);
@@ -42,8 +45,23 @@ int print_int(int n)
 		count += _putchar('-');
 		n = -n;
 	}
-	if (n / 10)
-		count += print_int(n / 10);
+	count += print_number(n);
 
-	return (count + _putchar(n % 10 + '0'));
+	return (count);
+}
+
+
+/**
+ * print_number - imprime nombre en utilisant recursion
+ * @num: nombre a imprimer
+ * Return: nombre de chiffre a imprimer
+ */
+
+int print_number(int num)
+{
+	int count = 0;
+
+	if (num / 10)
+		count += print_number(num / 10);
+	return (count + _putchar(num % 10 + '0'));
 }

@@ -18,6 +18,14 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(args, format);
+	format_specifier_t specifiers[] = {
+		{'c', (int (*)(va_list))_putchar},
+		{'s', (int (*)(va_list))print_string},
+		{'%', (int (*)(va_list))print_percent},
+		{'d', (int (*)(va_list))print_int},
+		{'i', (int (*)(va_list))print_int},
+		{'\0', NULL}
+	};
 	for (p = format; *p != '\0'; p++)
 	{
 		if (*p == '%')
@@ -25,7 +33,7 @@ int _printf(const char *format, ...)
 			p++;
 			if (*p == '\0')
 				break;
-			count += handle_format(*p, args);
+			count += handle_specifier(*p, args, specifiers);
 		}
 		else
 		{
@@ -36,33 +44,25 @@ int _printf(const char *format, ...)
 	return (count);
 }
 
+
 /**
- * handle_format - traite le specificateur de format et
+ * handle_specifier - traite le specificateur de format et
  *					apelle la foction approprier
  * @specifier: le caractere specificateur de format
  * @args: liste d'arguments
+ * @specifiers: tableau des specificateurs
  * Return: nombre de caractere imprimer pour le specificateur
  */
 
-int handle_format(const char specifier, va_list args)
+int handle_specifier(char specifier, va_list args, format_specifier_t
+specifiers[])
 {
-	if (specifier == 'c')
+	for (int i = 0; specifiers[i].specifier != '\0'; i++)
 	{
-		return (_putchar(va_arg(args, int)));
-	}
-	else if (specifier == 's')
-	{
-		char *str = va_arg(args, char *);
-
-		return (print_string(str ? str : "(null)"));
-	}
-	else if (specifier == '%')
-	{
-		return (print_percent());
-	}
-	else if (specifier == 'd' || specifier == 'i')
-	{
-		return (print_int(va_arg(args, int)));
+		if (specifiers[i].specifier == specifier)
+		{
+			return (specifiers[i].func(args));
+		}
 	}
 	return (_putchar('%') + _putchar(specifier));
 }
