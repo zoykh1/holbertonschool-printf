@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		{'\0', NULL}
 	};
 
-		if (format == NULL)
+	if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
@@ -37,14 +37,7 @@ int _printf(const char *format, ...)
 				va_end(args);
 				return (-1);
 			}
-		if (*p == '%')
-		{
-			count += _putchar('%');
-		}
-		else
-		{
 			count += handle_specifier(*p, args, specifiers);
-		}
 		}
 		else
 		{
@@ -54,7 +47,6 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
 
 /**
  * handle_specifier - traite le specificateur de format et
