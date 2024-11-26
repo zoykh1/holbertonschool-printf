@@ -14,12 +14,17 @@ int _printf(const char *format, ...)
 	int count = 0;
 	const char *p;
 
+	if (format == NULL)
+		return (-1);
+
 	va_start(args, format);
 	for (p = format; *p != '\0'; p++)
 	{
 		if (*p == '%')
 		{
 			p++;
+			if (*p == '\0')
+				break;
 			count += handle_format(*p, args);
 		}
 		else
@@ -47,7 +52,9 @@ int handle_format(const char specifier, va_list args)
 	}
 	else if (specifier == 's')
 	{
-		return (print_string(va_arg(args, char *)));
+		char *str = va_arg(args, char *);
+
+		return (print_string(str ? str : "(null)"));
 	}
 	else if (specifier == '%')
 	{
@@ -57,5 +64,5 @@ int handle_format(const char specifier, va_list args)
 	{
 		return (print_int(va_arg(args, int)));
 	}
-	return (_putchar(specifier));
+	return (_putchar('%') + _putchar(specifier));
 }
