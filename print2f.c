@@ -1,39 +1,5 @@
 #include "main.h"
 
-/**
- * print_string - imprime une chaine sur la sortie standard
- * @args: chaine a imprimer
- * Return: nombre de caractere a imprimer
- */
-
-int print_string(va_list args)
-{
-	char *s = va_arg(args, char *);
-	int count = 0;
-
-	if (s == NULL)
-		s = "(null)";
-
-	while (*s)
-	{
-		count += _putchar(*s++);
-	}
-
-	return (count);
-}
-
-
-/**
- * print_percent - imprime %
- * @args: liste arguments
- * Return: toujours 1 (succes)
- */
-
-int print_percent(va_list args)
-{
-	(void)args;
-	return (_putchar('%'));
-}
 
 /**
  * print_int - imprime un entier sur sortie standard
@@ -70,17 +36,4 @@ int print_number(int num)
 	if (num / 10)
 		count += print_number(num / 10);
 	return (count + _putchar(num % 10 + '0'));
-}
-
-
-/**
- * print_char - imprime un caractère sur la sortie standard.
- * @args: Liste d'arguments contenant le caractère à imprimer.
- * Return: toujours 1 (succes).
- */
-int print_char(va_list args)
-{
-	char c = va_arg(args, int);
-
-	return (_putchar(c));
 }
