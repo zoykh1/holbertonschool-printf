@@ -1,11 +1,13 @@
 #include "main.h"
 
 /**
- * _printf - Custom printf function to handle specific format specifiers
- * @format: The string containing characters and specifiers
- * @...: The values to format and print
- * Return: Number of characters printed
+ * _printf - Fonction printf personnalisée pour gérer
+ *           les spécificateurs de format spécifiques.
+ * @format: La chaîne contenant les caractères et spécificateurs.
+ * @...: Les valeurs à formater et à imprimer.
+ * Return: Nombre de caractères imprimés.
  */
+
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -37,12 +39,14 @@ int _printf(const char *format, ...)
 }
 
 /**
- * handle_specifier - Handles format specifier and calls appropriate function
- * @specifier: The format specifier character
- * @args: List of arguments
- * @specifiers: Array of specifiers
- * Return: Number of characters printed for the specifier
+ * handle_specifier - Traite le spécificateur de format
+ *                    et appelle la fonction appropriée.
+ * @specifier: Le caractère spécificateur de format.
+ * @args: Liste d'arguments.
+ * @specifiers: Tableau des spécificateurs.
+ * Return: Nombre de caractères imprimés pour le spécificateur.
  */
+
 int handle_specifier(char specifier, va_list args, format_specifier_t specifiers[])
 {
 	int i;
