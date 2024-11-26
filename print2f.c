@@ -36,19 +36,14 @@ int print_percent(void)
 int print_int(int n)
 {
 	int count = 0;
-	unsigned int num;
 
 	if (n < 0)
 	{
 		count += _putchar('-');
 		n = -n;
 	}
-	else
-	{
-		num = n;
-	}
-	if (num / 10)
-		count += print_int(num / 10);
+	if (n / 10)
+		count += print_int(n / 10);
 
-	return (count + _putchar(num % 10 + '0'));
+	return (count + _putchar(n % 10 + '0'));
 }
