@@ -1,60 +1,129 @@
 #include "main.h"
 
 /**
- * _printf - Fonction printf personnalisée pour gérer
- *           les spécificateurs de format spécifiques.
- * @format: La chaîne contenant les caractères et spécificateurs.
- * @...: Les valeurs à formater et à imprimer.
- * Return: Nombre de caractères imprimés.
+ * _printf - fonction printf personnalisé pour gerer
+ *			specificateur de formats specifiques
+ * @format: la chaine de caractere conteant les caracteres et specificateurs
+ * @...: les valeurs a formater et a imprimer
+ * Return: nombre de caracteres a imprimer
  */
 
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
+	const char *p;
 	format_specifier_t specifiers[] = {
-		{'c', print_char}, {'s', print_string}, {'%', print_percent},
-		{'d', print_int}, {'i', print_int}, {'\0', NULL}
+		{'c', print_char},
+		{'s', print_string},
+		{'%', print_percent},
+		{'d', print_int},
+		{'i', print_int},
+		{'\0', NULL}
 	};
 
-	if (format == NULL)
+		if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
-	while (format && *format)
+
+	for (p = format; *p != '\0'; p++)
 	{
-		if (*format != '%')
-			count += _putchar(*format);
+		if (*p == '%')
+		{
+			p++;
+			if (*p == '\0')
+			{
+				va_end(args);
+				return (-1);
+			}
+		if (*p == '%')
+		{
+			count += _putchar('%');
+		}
 		else
 		{
-			if (*(format + 1) == '\0')
-				return (-1);
-			format++;
-			count += handle_specifier(*format, args, specifiers);
+			count += handle_specifier(*p, args, specifiers);
 		}
-		format++;
+		}
+		else
+		{
+			count += _putchar(*p);
+		}
 	}
 	va_end(args);
 	return (count);
 }
 
+
 /**
- * handle_specifier - Traite le spécificateur de format
- *                    et appelle la fonction appropriée.
- * @specifier: Le caractère spécificateur de format.
- * @args: Liste d'arguments.
- * @specifiers: Tableau des spécificateurs.
- * Return: Nombre de caractères imprimés pour le spécificateur.
+ * handle_specifier - traite le specificateur de format et
+ *					apelle la foction approprier
+ * @specifier: le caractere specificateur de format
+ * @args: liste d'arguments
+ * @specifiers: tableau des specificateurs
+ * Return: nombre de caractere imprimer pour le specificateur
  */
 
-int handle_specifier(char specifier, va_list args, format_specifier_t specifiers[])
+int handle_specifier(char specifier, va_list args, format_specifier_t
+specifiers[])
+
 {
 	int i;
 
 	for (i = 0; specifiers[i].specifier != '\0'; i++)
 	{
 		if (specifiers[i].specifier == specifier)
+		{
 			return (specifiers[i].func(args));
+		}
 	}
 	return (_putchar('%') + _putchar(specifier));
+}
+
+/**
+ * print_string - imprime une chaine sur la sortie standard
+ * @args: chaine a imprimer
+ * Return: nombre de caractere a imprimer
+ */
+
+int print_string(va_list args)
+{
+	char *s = va_arg(args, char *);
+	int count = 0;
+
+	if (s == NULL)
+		s = "(null)";
+
+	while (*s)
+	{
+		count += _putchar(*s++);
+	}
+
+	return (count);
+}
+
+
+/**
+ * print_percent - imprime %
+ * @args: liste arguments
+ * Return: toujours 1 (succes)
+ */
+
+int print_percent(void)
+{
+	_putchar('%');
+	return (0);
+}
+
+/**
+ * print_char - imprime un caractère sur la sortie standard.
+ * @args: Liste d'arguments contenant le caractère à imprimer.
+ * Return: toujours 1 (succes).
+ */
+int print_char(va_list args)
+{
+	char c = va_arg(args, int);
+
+	return (_putchar(c));
 }
