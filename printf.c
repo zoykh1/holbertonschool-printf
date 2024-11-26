@@ -34,7 +34,14 @@ int _printf(const char *format, ...)
 			p++;
 			if (*p == '\0')
 				break;
+		if (*p == '%')
+		{
+			count += _putchar('%');
+		}
+		else
+		{
 			count += handle_specifier(*p, args, specifiers);
+		}
 		}
 		else
 		{
