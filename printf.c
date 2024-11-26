@@ -110,10 +110,10 @@ int print_string(va_list args)
  * Return: toujours 1 (succes)
  */
 
-int print_percent(void)
+int print_percent(va_list args)
 {
-	_putchar('%');
-	return (0);
+	(void)args;
+	return (_putchar('%'));
 }
 
 
