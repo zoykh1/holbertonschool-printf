@@ -11,18 +11,13 @@ int print_int(va_list args)
 {
 	int n = va_arg(args, int);
 	int count = 0;
-	unsigned int num;
 
 	if (n < 0)
 	{
 		count += _putchar('-');
 		n = -n;
 	}
-	else
-	{
-		num = n;
-	}
-	count += print_number(num);
+	count += print_number(n);
 
 	return (count);
 }
