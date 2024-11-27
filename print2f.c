@@ -29,7 +29,7 @@ int print_int(va_list args)
  * Return: nombre de chiffre a imprimer
  */
 
-int print_number(int num)
+int print_number(unsigned int num)
 {
 	int count = 0;
 
