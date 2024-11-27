@@ -35,6 +35,7 @@ int print_number(int num)
 
 	if (num / 10)
 		count += print_number(num / 10);
+	return (count + _putchar(num % 10 + '0'));
 	count += _putchar(num % 10 + '0');
 
 	return (count);
