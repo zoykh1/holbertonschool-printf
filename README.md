@@ -22,6 +22,5 @@ int _printf(const char *format, ...);
 gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
 
 ## Exemples
-
-
-
+![Capture d'écran 2024-11-27 135622](https://github.com/user-attachments/assets/fa3ca843-247d-4bfe-97c6-b925784f6627)
+![Capture d'écran 2024-11-27 135646](https://github.com/user-attachments/assets/44a4f90a-ffe6-4599-abc5-5989b4283c0e)
