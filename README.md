@@ -43,7 +43,4 @@ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
 
 
 # flowchart
-
-
-
-
+![Capture d'écran 2024-11-28 111202](https://github.com/user-attachments/assets/4f3f53c3-7a8c-4265-ae1c-c5ec0f95ec6d)
