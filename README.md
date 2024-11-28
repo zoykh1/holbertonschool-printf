@@ -35,7 +35,8 @@ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
 ![Capture d'écran 2024-11-27 135622](https://github.com/user-attachments/assets/fa3ca843-247d-4bfe-97c6-b925784f6627)
 ## sortie stdout
 ![Capture d'écran 2024-11-27 135646](https://github.com/user-attachments/assets/44a4f90a-ffe6-4599-abc5-5989b4283c0e)
-
+## test error output gcc
+![image](https://github.com/user-attachments/assets/3ca6d291-9616-4b15-b864-d97c89f13dea)
 
 # Valgrind Test
 ![Capture d'écran 2024-11-28 114626](https://github.com/user-attachments/assets/89f1a124-d834-4c23-b8ac-1219e9ec6b9b)
