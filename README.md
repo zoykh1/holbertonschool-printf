@@ -1,11 +1,11 @@
 <img align="center" width="35%" src="https://cdn.prod.website-files.com/64107f65f30b69371e3d6bfa/65c6179aa44b63fa4f31e7ad_Holberton-Logo-Cherry.svg">
 
-
-<img align="right" width="35%" src="https://owlbertsio-resized.s3.amazonaws.com/Popper.psd.full.png">
-
 # Projet Printf C25
 
 ## Sommaire
+
+<img align="right" width="35%" src="https://owlbertsio-resized.s3.amazonaws.com/Popper.psd.full.png">
+
 - [Description](#Description)
 - [Fonction prototype](#Fonction-prototype)
 - [settings handle specifier](#settings-handle-specifier)
@@ -15,6 +15,7 @@
 - [Man Page](#Man-Page)
 - [Flowchart](#Flowchart)
 - [Authors](#Authors)
+
 ## Description
 This project is a custom implementation of the Printf function in C.
 It reproduces certain functionalities of the standard Printf function.
