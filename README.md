@@ -5,12 +5,12 @@
 
 ## Sommaire
 - [Description](#Description)
-- [Fonction prototype](#Fonction_prototype)
-- [settings handle specifier](#settings_handle_specifier)
+- [Fonction prototype](#Fonction-prototype)
+- [settings handle specifier](#settings-handle-specifier)
 - [Compilation](#Compilation)
 - [Requirement](#Requirement)
 - [Exemples](#Exemples)
-- [Man Page](#Man_Page)
+- [Man Page](#Man-Page)
 - [Flowchart](#Flowchart)
 - [Authors](#Authors)
 ## Description
