@@ -38,7 +38,7 @@ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
 
 
 # Valgrind Test
-
+![Capture d'écran 2024-11-28 114626](https://github.com/user-attachments/assets/89f1a124-d834-4c23-b8ac-1219e9ec6b9b)
 
 # Man Page
 the command for the man is : man ./man_3_printf
