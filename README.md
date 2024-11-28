@@ -30,10 +30,10 @@ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
 **Git**
 ```
 
-## Exemples
-# test
+# Exemples
+## test
 ![Capture d'écran 2024-11-27 135622](https://github.com/user-attachments/assets/fa3ca843-247d-4bfe-97c6-b925784f6627)
-# sortie stdout
+## sortie stdout
 ![Capture d'écran 2024-11-27 135646](https://github.com/user-attachments/assets/44a4f90a-ffe6-4599-abc5-5989b4283c0e)
 
 
@@ -138,3 +138,7 @@ No known bugs at this time.
 
 # flowchart
 ![Capture d'écran 2024-11-28 111202](https://github.com/user-attachments/assets/4f3f53c3-7a8c-4265-ae1c-c5ec0f95ec6d)
+
+
+
+Made by ENZO and Ahmet for Holbertonschool (C25)
